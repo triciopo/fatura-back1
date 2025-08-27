@@ -149,6 +149,7 @@ public class Fatura {
 	}
 
 	private boolean isValido(String cpf) {
+		if (cpf == null) return false;
 		// Remover caracteres não numéricos
 		cpf = cpf.replace(".", "").replace("-", "");
 
