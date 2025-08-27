@@ -48,7 +48,7 @@ class TUReq16EmissaoDaFaturaTests {
 			
 		} catch (Exception e) {
 			logger.info(">>>>>> ct01 - nao deveria falhar => " + e.getMessage());
-			assertEquals("Cannot invoke \"String.replace(java.lang.CharSequence, java.lang.CharSequence)\" because \"cpf\" is null", e.getMessage());
+			assertEquals("CPF invalido", e.getMessage());
 
 		}
 
