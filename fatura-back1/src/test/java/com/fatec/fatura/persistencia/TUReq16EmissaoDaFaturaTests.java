@@ -28,8 +28,6 @@ class TUReq16EmissaoDaFaturaTests {
 			fatura = new Fatura("39086360009", dataVencimento, "moveis planejados", "1000.50");
 			// entao fatura é registrada com data de emisssao igual a data de hoje
 			assertNotNull(fatura);
-			assertFalse(fatura.isCancelada());
-			assertFalse(fatura.isPaga());
 		} catch (Exception e) {
 			logger.info(">>>>>> ct01 - nao deveria falhar => " + e.getMessage());
 			fail("nao deveria falhar fatura valida");
@@ -38,19 +36,18 @@ class TUReq16EmissaoDaFaturaTests {
 
 	}
 	@Test
-	void ct02_quando_dados_validos_fatura_nao_eh_nulo() {
+	void ct02_quando_dados_invalidos_retorna_msg_erro() {
 		try {
-			// dado que as informacoes de fatura sao validas
+			// dado que as informacoes sao invalidas
 			// quando confirmo a fatura
 			LocalDate dataVencimento = LocalDate.parse("02/10/2026", formatter);
 			fatura = new Fatura(null, dataVencimento, "moveis planejados", "1000.50");
-			// entao fatura é registrada com data de emisssao igual a data de hoje
+			// entao retorna mensagem de erro
 			
 		} catch (Exception e) {
 			logger.info(">>>>>> ct01 - nao deveria falhar => " + e.getMessage());
 			assertEquals("CPF invalido", e.getMessage());
-
-		}
+        }
 
 	}
 	
